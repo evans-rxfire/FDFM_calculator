@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>FDFM Calculator</title>
+</head>
+<body>
+    <header>
+        <h1>Fine Dead Fuel Moisture Calculator</h1>
+    </header>
+
+    <div id="input-container">
+        <form>
+            <label for="month">Month</label>
+            <input type="month" id="month">
+            <label for="time">Time</label>
+            <input type="time" id="time">
+
+            <label for="temp">Temp</label>
+            <input type="number" id="temp">
+            <label for="RH">RH</label>
+            <input type="number" id="RH">
+
+            <label for="slope">Slope</label>
+            <select id="slope">
+                <option value="less-than-30">0 - 30%</option>
+                <option value="more-than-30"> 31% +</option>
+            </select>
+            <label for="aspect">Aspect</label>
+            <select id="aspect">
+                <option value="north">North</option>
+                <option value="east">East</option>
+                <option value="south">South</option>
+                <option value="west">West</option>
+            </select>
+            <label for="shading">Shading</label>
+            <select id="shading">
+                <option value="exposed">Less than 50%</option>
+                <option value="shaded">More than 50%</option>
+            </select>
+            <label for="location">Relative Location</label>
+            <select id="location">
+                <option value="below">Below</option>
+                <option value="level">Level</option>
+                <option value="above">Above</option>
+            </select>
+            
+            <button type="submit" id="calcualte-btn">Calculate FDFM</button>
+        </form>
+    </div>
+
+    <div id="output-container">
+        <h4>FDFM</h4>
+        <p id="output"></p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
