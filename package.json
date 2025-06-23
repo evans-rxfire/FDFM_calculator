@@ -1,0 +1,26 @@
+{
+  "name": "fdfm_calculator",
+  "version": "1.0.0",
+  "description": "A web-based tool for calculating Fine Dead Fuel Moisture using the Fosberg model. Built to assist prescribed fire practitioners in estimating fuel moisture based on local weather, topography, and site conditions.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "tailwindcss -i ./styles.css -o ./dist/styles.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evans-rxfire/FDFM_calculator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/evans-rxfire/FDFM_calculator/issues"
+  },
+  "homepage": "https://github.com/evans-rxfire/FDFM_calculator#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.1"
+  }
+}

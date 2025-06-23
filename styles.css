@@ -1,73 +1,14 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 1rem;
-  background-color: #f8f9fa;
-  color: #333;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="month"],
+input[type="time"] {
+  color: inherit;
+  background-color: inherit;
 }
 
-#input-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: auto;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-label {
-  font-weight: bold;
-}
-
-input,
-select,
-button {
-  padding: 0.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: #0069d9;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-#output-container {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: #e9ecef;
-  border-radius: 8px;
-  text-align: center;
-}
-
-p {
-  white-space: pre-line;
-}
-
-@media (min-width: 600px) {
-  #input-container form {
-    grid-template-columns: 1fr 1fr;
-    display: grid;
-    gap: 1rem;
-  }
-
-  label {
-    grid-column: span 2;
-  }
-
-  button {
-    grid-column: span 2;
-  }
+input[type="month"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2);
 }

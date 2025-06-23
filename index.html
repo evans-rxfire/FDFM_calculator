@@ -1,61 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>FDFM Calculator</title>
-</head>
-<body>
-    <header>
-        <h1>Fine Dead Fuel Moisture Calculator</h1>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="dist/styles.css">
+        <title>FDFM Calculator</title>
+    </head>
 
-    <div id="input-container">
-        <form>
-            <label for="month">Month</label>
-            <input type="month" id="month">
-            <label for="time">Time</label>
-            <input type="time" id="time">
+    <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 p-4">
+        <header class="text-center mb-6">
+            <h1 class="text-2xl font-bold">Fine Dead Fuel Moisture Calculator</h1>
+            <button id="dark-mode-toggle" class="px-3 py-1 rounded bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-200">Toggle Dark Mode</button>
+        </header>
 
-            <label for="temp">Temp</label>
-            <input type="number" id="temp">
-            <label for="RH">RH</label>
-            <input type="number" id="RH">
+        <main class="max-w-xl mx-auto bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-xl shadow-md space-y-6 text-gray-900 dark:text-gray-100">
+            <div id="input-container">
+                <form>
+                    <div class="mb-4">
+                        <label for="month" class="block font-medium">Month</label>
+                        <input type="month" id="month" class="mt-1 w-full rounded border border-gray-300 dark:border-gray-600 shadow-sm p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <div class="mb-4">
+                        <label for="time" class="block font-medium">Time</label>
+                        <input type="time" id="time" class="mt-1 w-full rounded border border-gray-300 dark:border-gray-600 shadow-sm p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <div class="mb-4">
+                        <label for="temp" class="block font-medium">Temp</label>
+                        <input type="number" id="temp" class="mt-1 w-full rounded border border-gray-300 dark:border-gray-600 shadow-sm p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <div class="mb-4">
+                        <label for="RH" class="block font-medium">RH</label>
+                        <input type="number" id="RH" min="0" max="100" class="mt-1 w-full rounded border border-gray-300 dark:border-gray-600 shadow-sm p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </div>
+                    <div class="mb-4">
+                        <label for="slope" class="block font-medium">Slope</label>
+                        <select id="slope" class="mt-1 w-full rounded border border-gray-300 dark:border-gray-600 shadow-sm p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="less-than-30">0 - 30%</option>
+                        <option value="more-than-30">31% +</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="aspect" class="block font-medium">Aspect</label>
+                        <select id="aspect" class="mt-1 w-full rounded border border-gray-300 dark:border-gray-600 shadow-sm p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="north">North</option>
+                        <option value="east">East</option>
+                        <option value="south">South</option>
+                        <option value="west">West</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="shading" class="block font-medium">Shading</label>
+                        <select id="shading" class="mt-1 w-full rounded border border-gray-300 dark:border-gray-600 shadow-sm p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="exposed">Less than 50%</option>
+                        <option value="shaded">More than 50%</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="location" class="block font-medium">Relative Location</label>
+                        <select id="location" class="mt-1 w-full rounded border border-gray-300 dark:border-gray-600 shadow-sm p-2 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="below">Below</option>
+                        <option value="level" selected>Level</option>
+                        <option value="above">Above</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="calculate-btn" class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white dark:bg-blue-700 dark:hover:bg-blue-800 py-2 px-4 rounded">Calculate FDFM and PIG</button>
+                </form>
+            </div>
 
-            <label for="slope">Slope</label>
-            <select id="slope">
-                <option value="less-than-30">0 - 30%</option>
-                <option value="more-than-30"> 31% +</option>
-            </select>
-            <label for="aspect">Aspect</label>
-            <select id="aspect">
-                <option value="north">North</option>
-                <option value="east">East</option>
-                <option value="south">South</option>
-                <option value="west">West</option>
-            </select>
-            <label for="shading">Shading</label>
-            <select id="shading">
-                <option value="exposed">Less than 50%</option>
-                <option value="shaded">More than 50%</option>
-            </select>
-            <label for="location">Relative Location</label>
-            <select id="location">
-                <option value="below">Below</option>
-                <option value="level" selected>Level</option>
-                <option value="above">Above</option>
-            </select>
-            
-            <button type="submit" id="calcualte-btn">Calculate FDFM</button>
-        </form>
-    </div>
+            <div id="output-container" class="p-4 bg-gray-100 dark:bg-gray-800 rounded">
+                <h4 class="text-lg font-semibold">FDFM</h4>
+                <ul class="mb-4 text-blue-700 dark:text-blue-400 font-mono space-y-1">
+                <li id="ref-fdfm"></li>
+                <li id="adj-fdfm"></li>
+                <li id="final-fdfm"></li>
+                </ul>
+                <h4 class="text-lg font-semibold">PIG</h4>
+                <p id="pig-output" class="mb-2 text-blue-700 dark:text-blue-400 font-mono"></p>
+            </div>
+    </main>
 
-    <div id="output-container">
-        <h4>FDFM</h4>
-        <p id="output"></p>
-    </div>
 
-    <script src="main.js"></script>
-</body>
+        <footer class="text-center mt-8 text-sm text-gray-500">
+            <p>
+                &copy; 2025 evans-rxfire. Licensed under the <a href="LICENSE" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">MIT License</a>.
+            </p>
+        </footer>
+
+        <script src="fdfmData.js"></script>
+        <script src="main.js"></script>
+    </body>
 </html>

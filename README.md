@@ -18,8 +18,11 @@ A web-based tool for calculating Fine Dead Fuel Moisture using the Fosberg model
   - Shading
   - Time of day
   - Position on slope (upper, middle, lower)
-- **Seasonal logic** (different tables for Feb–Apr/Aug–Oct, May–July, and Nov–Jan)
-- LocalStorage support for **persistent user input**
+- **Seasonal logic** with different adjustment tables for:
+  - Feb-Apr & Aug-Oct
+  - May-July
+  - Nov-Jan
+
 
 ---
 
@@ -29,7 +32,7 @@ A web-based tool for calculating Fine Dead Fuel Moisture using the Fosberg model
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/fdfm-calculator.git
+   git clone https://github.com/evans-rxfire/fdfm-calculator.git
 
 2. Open index.html in your web browswer. No build tools or dependencies required.
 
@@ -38,6 +41,7 @@ A web-based tool for calculating Fine Dead Fuel Moisture using the Fosberg model
 ## Tech Stack
 
  - HTML5, CSS3, JavaScript
+ - Tailwind CSS for styling
  - Designed for modern browsers
 
 
@@ -51,8 +55,7 @@ This calculator uses the Fosberg model for estimating fine dead fuel moisture an
 
 - [x] Basic calculation form
 - [x] Adjustment table logic based on month
-- [ ] Calculate Probability of Ignition (PIG)
-- [ ] Export to PDF
+- [x] Calculate Probability of Ignition (PIG)
 - [ ] Responsive mobile interface
 - [ ] Option to save/export multiple records
 - [ ] Firebase integration for multi-user version (future)
@@ -68,6 +71,5 @@ This project is licensed under the [MIT License](LICENSE).
 ## Acknowledgments
 
 - Fosberg, M. A. (1971). *Climatological Aids to Fuel Moisture Estimation*.
-- Adjustment tables adapted from federal fire management guidance.
-- [jsPDF](https://github.com/parallax/jsPDF) for PDF export.
+- Adjustment tables adapted from Federal fire management guidance, specifically the tables found at https://www.nwcg.gov/publications/pms437/fuel-moisture/dead-fuel-moisture-content and https://gacc.nifc.gov/swcc/predictive/outlooks/fire_behavior/reference_tables/documents/pi.htm.
 
