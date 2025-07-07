@@ -22,7 +22,7 @@ A web-based tool for calculating Fine Dead Fuel Moisture using the Fosberg model
   - Feb-Apr & Aug-Oct
   - May-July
   - Nov-Jan
-
+- Also calculates **Probability of Ignition** based on the calculated FDFM
 
 ---
 
