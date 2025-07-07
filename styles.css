@@ -4,8 +4,8 @@
 
 input[type="month"],
 input[type="time"] {
-  color: #1f2937;
-  background-color: inherit;
+    color: #1f2937;
+    background-color: inherit;
 }
 
 html.dark input[type="month"],
@@ -15,5 +15,10 @@ html.dark input[type="time"] {
 
 input[type="month"]::-webkit-calendar-picker-indicator,
 input[type="time"]::-webkit-calendar-picker-indicator {
-  filter: invert(1) brightness(2);
+    filter: none;  
+}
+
+html.dark input[type="month"]::-webkit-calendar-picker-indicator,
+html.dark input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(2);
 }
