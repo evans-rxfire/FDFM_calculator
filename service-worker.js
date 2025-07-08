@@ -1,13 +1,13 @@
 const CACHE_NAME = "fdfm-cache-v1";
 const FILES_TO_CACHE = [
-    "/",
-    "/index.html",
-    "/styles.css",
-    "/manifest.json",
-    "/main.js",
-    "/fdfmData.js",
-    "/icons/icon-192.png",
-    "/icons/icon-512.png"
+    "./",
+    "./index.html",
+    "./styles.css",
+    "./manifest.json",
+    "./main.js",
+    "./fdfmData.js",
+    "./icons/icon-192.png",
+    "./icons/icon-512.png"
 ];
 
 
