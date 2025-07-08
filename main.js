@@ -265,42 +265,42 @@ if ("serviceWorker" in navigator) {
     });
 }
 
-/* ────────────────────────────────────────────── */
-/*   INSTALL‑APP BUTTON LOGIC (place at bottom)  */
-/* ────────────────────────────────────────────── */
 
-let deferredPrompt;                       // stores the event
+let deferredPrompt;
 const installBtn = document.getElementById("install-button");
 
-// 1️⃣  Hide button by default (safety net)
-if (installBtn) installBtn.classList.add("hidden");
+// Initially hide the install button
+installBtn?.classList.add("hidden");
 
-// 2️⃣  Listen for the install‑prompt event
+// Listen for beforeinstallprompt event
 window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();                     // stop mini‑infobar
-  deferredPrompt = e;                     // save the event
-  console.log("🔥 beforeinstallprompt fired");
+    e.preventDefault(); // Prevent automatic prompt
+    deferredPrompt = e;
+    console.log("🔥 beforeinstallprompt fired");
 
-  if (installBtn) installBtn.classList.remove("hidden");  // reveal btn
+    // Show the install button
+    installBtn?.classList.remove("hidden");
 });
 
-// 3️⃣  Handle button click
-if (installBtn) {
-  installBtn.addEventListener("click", async () => {
-    if (!deferredPrompt) return;          // guard
+// Handle install button click
+installBtn?.addEventListener("click", async () => {
+    if (!deferredPrompt) return;
 
-    deferredPrompt.prompt();              // show native prompt
+    // Show the install prompt
+    deferredPrompt.prompt();
+
+    // Wait for the user's response
     const { outcome } = await deferredPrompt.userChoice;
     console.log("User choice:", outcome);
 
-    deferredPrompt = null;                // reset
-    installBtn.classList.add("hidden");   // hide after click
-  });
-}
+    // Reset the deferred prompt variable & hide button
+    deferredPrompt = null;
+    installBtn?.classList.add("hidden");
+});
 
-// 4️⃣  Hide button once app is installed
+// Listen for appinstalled event
 window.addEventListener("appinstalled", () => {
-  console.log("✅ App installed");
-  deferredPrompt = null;
-  if (installBtn) installBtn.classList.add("hidden");
+    console.log("✅ App installed");
+    deferredPrompt = null;
+    installBtn?.classList.add("hidden");
 });
