@@ -24,6 +24,14 @@ const locationMap = {
 
 let deferredPrompt;
 
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBtn = document.getElementById("install-button");
+    if (installBtn) installBtn.style.display = "block";
+});
+
+
 const installBtn = document.getElementById("install-button");
 
 if (installBtn) {
@@ -281,12 +289,6 @@ if ("serviceWorker" in navigator) {
     });
 }
 
-window.addEventListener("beforeinstallprompt", (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    const installBtn = document.getElementById("install-button");
-    if (installBtn) installBtn.style.display = "block";
-});
 
 window.addEventListener("appinstalled", () => {
     console.log("App installed!");
