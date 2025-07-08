@@ -22,6 +22,22 @@ const locationMap = {
 };
 
 
+let deferredPrompt;
+
+const installBtn = document.getElementById("install-button");
+
+if (installBtn) {
+    installBtn.addEventListener("click", async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        console.log(`Install prompt result: ${outcome}`);
+        deferredPrompt = null;
+        installBtn.style.display = "none";
+    });
+}
+
+
 function getFormData() {
     const temp = parseFloat(tempInput.value);
     const rh = parseFloat(rhInput.value);
@@ -264,3 +280,16 @@ if ("serviceWorker" in navigator) {
         .catch((err) => console.error("Service worker registration failed:", err));
     });
 }
+
+window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBtn = document.getElementById("install-button");
+    if (installBtn) installBtn.style.display = "block";
+});
+
+window.addEventListener("appinstalled", () => {
+    console.log("App installed!");
+    const installBtn = document.getElementById("install-button");
+    if (installBtn) installBtn.style.display = "none";
+});
