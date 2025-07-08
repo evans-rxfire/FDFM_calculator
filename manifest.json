@@ -1,6 +1,7 @@
 {
+    "id": "/FDFM_calculator/index.html",
     "name": "Fine Dead Fuel Moisture Calculator",
-    "short_name": "FDFM Calc",
+    "short_name": "FDFM Calculator",
     "description": "Estimate Fine Dead Fuel Moisture using the Fosberg model and site conditions.",
     "start_url": "./index.html",
     "display": "standalone",
