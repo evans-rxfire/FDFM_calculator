@@ -20,6 +20,19 @@
         "sizes": "512x512",
         "type": "image/png"
         }
+    ],
+    "screenshots": [
+        {
+            "src": "/FDFM_calculator/icons/screenshot-wide.png",
+            "sizes": "1356x885",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/FDFM_calculator/icons/screenshot-default.png",
+            "sizes": "594x536",
+            "type": "image/png"
+        }
     ]
 }
 
