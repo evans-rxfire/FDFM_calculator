@@ -264,3 +264,43 @@ if ("serviceWorker" in navigator) {
         .catch((err) => console.error("Service worker registration failed:", err));
     });
 }
+
+/* ────────────────────────────────────────────── */
+/*   INSTALL‑APP BUTTON LOGIC (place at bottom)  */
+/* ────────────────────────────────────────────── */
+
+let deferredPrompt;                       // stores the event
+const installBtn = document.getElementById("install-button");
+
+// 1️⃣  Hide button by default (safety net)
+if (installBtn) installBtn.classList.add("hidden");
+
+// 2️⃣  Listen for the install‑prompt event
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();                     // stop mini‑infobar
+  deferredPrompt = e;                     // save the event
+  console.log("🔥 beforeinstallprompt fired");
+
+  if (installBtn) installBtn.classList.remove("hidden");  // reveal btn
+});
+
+// 3️⃣  Handle button click
+if (installBtn) {
+  installBtn.addEventListener("click", async () => {
+    if (!deferredPrompt) return;          // guard
+
+    deferredPrompt.prompt();              // show native prompt
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log("User choice:", outcome);
+
+    deferredPrompt = null;                // reset
+    installBtn.classList.add("hidden");   // hide after click
+  });
+}
+
+// 4️⃣  Hide button once app is installed
+window.addEventListener("appinstalled", () => {
+  console.log("✅ App installed");
+  deferredPrompt = null;
+  if (installBtn) installBtn.classList.add("hidden");
+});
