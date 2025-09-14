@@ -191,13 +191,13 @@ function getPig(temp, fdfm, shading) {
 }
 
 
-toggleBtn.addEventListener('click', () => {
-    htmlElement.classList.toggle('dark');
+toggleBtn.addEventListener("click", () => {
+    htmlElement.classList.toggle("dark");
 
-    if (htmlElement.classList.contains('dark')) {
-        localStorage.setItem('theme', 'dark');
+    if (htmlElement.classList.contains("dark")) {
+        localStorage.setItem("theme", "dark");
     } else {
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem("theme", "light");
     }
 });
 
