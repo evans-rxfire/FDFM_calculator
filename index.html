@@ -9,16 +9,33 @@
         <meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="default">
 		<meta name="apple-mobile-web-app-title" content="FDFM Calculator">
-		<link rel="apple-touch-icon" href="/FDFM_calculator/icons/icon-192.png">
+		<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+        <link rel="icon" href="icons/favicon.ico">
         <title>FDFM Calculator</title>
     </head>
 
-    <body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100 p-4">
+    <body class="bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-100 p-4">
+        <nav class="flex justify-between items-center px-4 py-2 bg-gray-300 dark:bg-gray-900 rounded">
+        <ul class="flex space-x-4 list-none m-0 p-0">
+            <!--<li><a href="index.html" class="text-gray-800 dark:text-gray-100 hover:underline dark:hover:decoration-sky-400">Home</a></li>--->
+        </ul>
+
+        <div class="relative lg:ml-6">
+            <button id="dropdown-toggle" class="px-4 py-2 text-gray-800 dark:text-gray-100 hover:underline dark:hover:decoration-sky-400">Other Apps</button>
+
+            <div id="dropdown-menu" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded shadow-md z-10 hidden">
+                <a href="https://evans-rxfire.github.io/fire-weather-planner/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700" target="_blank" rel="noopener noreferrer">Fire Weather Planner</a>
+                <a href="https://evans-rxfire.github.io/burnReadinessApp/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700" target="_blank" rel="noopener noreferrer">Burn Readiness Checklist</a>
+                <a href="https://evans-rxfire.github.io/go_nogo_checklist/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700" target="_blank" rel="noopener noreferrer">Go/No-Go Checklist</a>
+            </div>
+        </div>
+    </nav>
+
         <header class="text-center mb-6">
             <h1 class="text-2xl font-bold">Fine Dead Fuel Moisture Calculator</h1>
         </header>
 
-        <main class="max-w-xl mx-auto bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-xl shadow-md space-y-6 text-gray-900 dark:text-gray-100">
+        <main class="max-w-xl mx-auto bg-white dark:bg-gray-900 p-4 sm:p-6 rounded-md shadow-md space-y-6 text-gray-900 dark:text-gray-100">
             <div id="input-container">
                 <form>
                     <div class="mb-4">
@@ -95,7 +112,8 @@
                         <button id="dark-mode-toggle" class="px-2.5 py-1 rounded mt-3 bg-gray-300 dark:bg-gray-700 text-gray-800 dark:text-gray-200 text-sm">Toggle Dark Mode</button>
         </footer>
 
-        <script src="fdfmData.js"></script>
-        <script src="main.js" defer></script>
+        <script src="js/ui.js"></script>
+        <script src="js/fdfmData.js"></script>
+        <script src="js/main.js" defer></script>
     </body>
 </html>
